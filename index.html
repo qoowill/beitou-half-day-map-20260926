@@ -1,0 +1,60 @@
+<div id="beitou-route-map" aria-label="汐止到北投半日遊互動路線圖">
+  <style>
+    #beitou-route-map{font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--foreground);max-width:760px;margin:0 auto}
+    #beitou-route-map .route-title{font-size:1.25rem;font-weight:500;margin-bottom:.35rem}
+    #beitou-route-map .route-note{color:var(--muted-foreground);font-size:.9rem;margin-bottom:1rem}
+    #beitou-route-map .route{display:flex;gap:.6rem;overflow-x:auto;padding:.4rem .2rem 1rem;align-items:stretch}
+    #beitou-route-map .stop{min-width:145px;text-align:left;background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:.7rem;padding:.75rem;cursor:pointer}
+    #beitou-route-map .stop.active{border-color:var(--primary);box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 25%,transparent)}
+    #beitou-route-map .stop-num{font-size:.8rem;color:var(--muted-foreground)}
+    #beitou-route-map .stop-name{font-weight:500;margin:.25rem 0}
+    #beitou-route-map .stop-time{font-size:.82rem;color:var(--muted-foreground)}
+    #beitou-route-map .arrow{align-self:center;color:var(--muted-foreground);font-size:1.2rem}
+    #beitou-route-map .detail{border-top:1px solid var(--border);padding-top:1rem;min-height:115px}
+    #beitou-route-map .detail h3{margin:.1rem 0 .35rem;font-size:1.05rem;font-weight:500}
+    #beitou-route-map .detail p{margin:.25rem 0;color:var(--muted-foreground)}
+    #beitou-route-map .detail a{display:inline-block;margin-top:.65rem;color:var(--primary);text-decoration:underline}
+    #beitou-route-map .legend{font-size:.82rem;color:var(--muted-foreground);margin-top:.7rem}
+  </style>
+  <div class="route-title">汐止 → 北投半日遊</div>
+  <div class="route-note">9/26（週六）｜點一下站點，看交通、時間與導航</div>
+  <div class="route" role="list" aria-label="行程站點">
+    <button class="stop active" data-i="0" type="button"><div class="stop-num">1｜08:20–09:00</div><div class="stop-name">家裡 → 汐止站</div><div class="stop-time">公車＋臺鐵</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="1" type="button"><div class="stop-num">2｜09:40–10:25</div><div class="stop-name">新北投站</div><div class="stop-time">捷運轉乘</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="2" type="button"><div class="stop-num">3｜10:30–11:40</div><div class="stop-name">早安勇士</div><div class="stop-time">早午餐</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="3" type="button"><div class="stop-num">4｜11:40–13:00</div><div class="stop-name">北投公園</div><div class="stop-time">圖書館＋博物館</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="4" type="button"><div class="stop-num">5｜13:00–14:00</div><div class="stop-name">地熱谷</div><div class="stop-time">步行景點</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="5" type="button"><div class="stop-num">6｜14:00–15:40</div><div class="stop-name">豆咖啡</div><div class="stop-time">咖啡＋甜點</div></button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="stop" data-i="6" type="button"><div class="stop-num">7｜15:40 後</div><div class="stop-name">返回汐止</div><div class="stop-time">捷運＋臺鐵</div></button>
+  </div>
+  <div class="detail" aria-live="polite">
+    <h3 id="route-detail-title">家裡 → 汐止火車站</h3>
+    <p id="route-detail-body">從新台五路搭公車到汐止火車站；再搭往台北、南港方向的臺鐵。</p>
+    <a id="route-detail-link" href="https://www.google.com/maps/dir/?api=1&origin=新台五路汐止&destination=汐止火車站&travelmode=transit" target="_blank" rel="noopener">開啟這一段 Google 地圖</a>
+  </div>
+  <div class="legend">提醒：15:40 前離開豆咖啡，回程才有緩衝。明日上午 10–11 點可能有短暫陣雨，請帶傘。</div>
+  <script>
+    (()=>{
+      const data=[
+        ['家裡 → 汐止火車站','從新台五路搭公車到汐止火車站；再搭往台北、南港方向的臺鐵。','https://www.google.com/maps/dir/?api=1&origin=新台五路汐止&destination=汐止火車站&travelmode=transit'],
+        ['台北車站 → 新北投站','臺鐵到台北車站後，搭捷運淡水信義線到北投，再轉新北投支線。','https://www.google.com/maps/dir/?api=1&origin=台北車站&destination=新北投捷運站&travelmode=transit'],
+        ['早安勇士｜早午餐','從新北投站步行約 5–10 分鐘。週六營業；熱門時段可能候位。','https://www.google.com/maps/dir/?api=1&origin=新北投捷運站&destination=早安勇士+北投&travelmode=walking'],
+        ['北投公園、圖書館、溫泉博物館','三個點彼此很近，安排約 80 分鐘；下雨時可縮短公園散步。','https://www.google.com/maps/dir/?api=1&origin=早安勇士+北投&destination=北投溫泉博物館&travelmode=walking'],
+        ['地熱谷','從溫泉博物館步行約 15–20 分鐘；週六開放，停留約 30 分鐘。','https://www.google.com/maps/dir/?api=1&origin=北投溫泉博物館&destination=地熱谷&travelmode=walking'],
+        ['豆咖啡 BEANCAFE／豆三店','虹吸咖啡、手沖與甜點；週六通常 10:00–19:00。','https://www.google.com/maps/dir/?api=1&origin=地熱谷&destination=豆咖啡+BEANCAFE+北投&travelmode=walking'],
+        ['回程：豆咖啡 → 汐止','走回新北投站，搭捷運到台北，再轉臺鐵回汐止；建議 16:00 前到新北投站。','https://www.google.com/maps/dir/?api=1&origin=豆咖啡+BEANCAFE+北投&destination=汐止火車站&travelmode=transit']
+      ];
+      const buttons=[...document.querySelectorAll('#beitou-route-map .stop')];
+      const title=document.getElementById('route-detail-title');
+      const body=document.getElementById('route-detail-body');
+      const link=document.getElementById('route-detail-link');
+      buttons.forEach((b)=>b.addEventListener('click',()=>{const i=Number(b.dataset.i);buttons.forEach(x=>x.classList.toggle('active',x===b));title.textContent=data[i][0];body.textContent=data[i][1];link.href=data[i][2];}));
+    })();
+  </script>
+</div>
